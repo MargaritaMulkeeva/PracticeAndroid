@@ -10,5 +10,6 @@
 
     <color name="mainColor">#150D0B</color>
     <color name="orange">#EF3A01</color>
+    <color name="panel">#1C1A19</color>
 
 </resources>

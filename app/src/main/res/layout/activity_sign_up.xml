@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn"
+    tools:context=".SignUp"
     android:orientation="vertical"
     android:background="@color/mainColor">
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -16,10 +17,32 @@
         android:layout_marginTop="40dp"/>
 
     <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="@dimen/left"
+        android:layout_marginRight="@dimen/right"
+        android:hint="Имя"
+        android:background="@drawable/border"
+        android:fontFamily="@font/regular"/>
+
+    <EditText
+        android:id="@+id/et_lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="@dimen/left"
+        android:layout_marginRight="@dimen/right"
+        android:hint="Фамилия"
+        android:background="@drawable/border"
+        android:fontFamily="@font/regular"/>
+
+    <EditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="16dp"
         android:layout_marginLeft="@dimen/left"
         android:layout_marginRight="@dimen/right"
         android:hint="E-mail"
@@ -33,21 +56,31 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="@dimen/left"
         android:layout_marginRight="@dimen/right"
-        android:hint="Password"
+        android:hint="Пароль"
         android:background="@drawable/border"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:fontFamily="@font/regular"/>
+        android:fontFamily="@font/regular"
+        android:inputType="textPassword"/>
+    <EditText
+        android:id="@+id/et_retrypassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="@dimen/left"
+        android:layout_marginRight="@dimen/right"
+        android:hint="Повторите пароль"
+        android:background="@drawable/border"
+        android:fontFamily="@font/regular"
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/btn_logIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:layout_marginTop="146dp"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="@dimen/left"
         android:layout_marginRight="@dimen/right"
-        android:text="Войти"
+        android:text="Зарегистрироваться"
         android:fontFamily="@font/bold"
         android:background="@drawable/border_orange"
         android:textAllCaps="false"
@@ -61,7 +94,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="@dimen/left"
         android:layout_marginRight="@dimen/right"
-        android:text="Регистрация"
+        android:text="У меня уже есть аккаунт"
         android:textSize="16dp"
         style="@style/ButtonStyle"
         android:foreground="@drawable/border"
