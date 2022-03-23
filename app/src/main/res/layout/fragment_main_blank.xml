@@ -22,12 +22,12 @@
                 android:id="@+id/txt_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/bold"
                 android:text="Altered Carbon"
                 android:textColor="@color/white"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="44dp"
                 android:textSize="24dp" />
 
             <ImageView

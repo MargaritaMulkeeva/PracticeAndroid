@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/mainBlankFragment" android:title="Главная" android:icon="@drawable/tv"/>
-    <item android:id="@+id/compilationBlankFragment" android:title="Подборка" android:icon="@drawable/compilation"/>
-    <item android:id="@+id/collectionBlankFragment" android:title="Коллекция" android:icon="@drawable/collection"/>
-    <item android:id="@+id/profileBlankFragment" android:title="Профиль" android:icon="@drawable/profile"/>
+    <item
+        android:id="@+id/mainBlankFragment"
+        android:icon="@drawable/tv"
+        android:title="Главная" />
+    <item
+        android:id="@+id/compilationBlankFragment"
+        android:icon="@drawable/compilation"
+        android:title="Подборка" />
+    <item
+        android:id="@+id/collectionBlankFragment"
+        android:icon="@drawable/collection"
+        android:title="Коллекция" />
+    <item
+        android:id="@+id/profileBlankFragment"
+        android:icon="@drawable/profile"
+        android:title="Профиль" />
 </menu>
