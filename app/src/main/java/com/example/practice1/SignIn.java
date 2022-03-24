@@ -38,21 +38,12 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        btnSignIn = findViewById(R.id.btn_signIn);
-
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SignIn.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        btnSignUp = findViewById(R.id.btn_signUp);
-        etEmail = findViewById(R.id.et_email);
-        etPassword = findViewById(R.id.et_password);
-
+        initializeViews();
     }
     private void initializeViews() {
+        btnSignIn = findViewById(R.id.btn_signIn);
+
+        btnSignUp = findViewById(R.id.btn_signUp);
         editEmail = findViewById(R.id.et_email);
         editPassword = findViewById(R.id.et_password);
 
@@ -68,7 +59,9 @@ public class SignIn extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
 
-                    if (response.isSuccessful()){
+                    if (response.isSuccessful()) {
+                        Intent intent = new Intent(SignIn.this, MainActivity.class);
+                        startActivity(intent);
                         Toast.makeText(getApplicationContext(), "Авторизация прошла успешно! Держи свой токен: " + response.body().getToken(), Toast.LENGTH_SHORT).show();
                     } else if (response.code() == 400){
                         String serverErrorMessage = ErrorUtils.parseError(response).message();
