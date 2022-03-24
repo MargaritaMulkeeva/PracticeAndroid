@@ -1,5 +1,6 @@
 package com.example.practice1;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,8 +16,6 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class ProfileBlankFragment extends Fragment {
-
-    Button btn_exit;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,8 +60,14 @@ public class ProfileBlankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-        return inflater.inflate(R.layout.fragment_profile_blank, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile_blank, container, false);
+        Button btn = view.findViewById(R.id.btn_exit);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), SignIn.class));
+            }
+        });
+        return view;
     }
 }
