@@ -6,9 +6,10 @@ public class Discussion {
     String message;
     int image;
 
-    public Discussion(String _nameFilm, String _message, int _image){
+    public Discussion(int _image, String _nameFilm, String _message){
         nameFilm = _nameFilm;
         message= _message;
         image = _image;
     }
+
 }
