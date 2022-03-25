@@ -1,64 +1,83 @@
 package com.example.practice1;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MainBlankFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.practice1.Adapters.MoviesAdapter;
+import com.example.practice1.NetWork.ApiHundler;
+import com.example.practice1.NetWork.ErrorUtils;
+import com.example.practice1.NetWork.Models.PhotoBody;
+import com.example.practice1.NetWork.Service.ApiService;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainBlankFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private MoviesAdapter moviesListAdapter;
+    private List<PhotoBody> mMovies;
+    private RecyclerView mMoviesContainer;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private ApiService service = ApiHundler.getInstance().getService();
 
     public MainBlankFragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MainBlankFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static MainBlankFragment newInstance(String param1, String param2) {
-        MainBlankFragment fragment = new MainBlankFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        return new MainBlankFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_blank, container, false);
+        View view = inflater.inflate(R.layout.fragment_main_blank, container, false);
+
+        fetchMovies();
+        InitUI(view);
+        return view;
+    }
+    private void InitUI(View view) {
+
+        mMoviesContainer = view.findViewById(R.id.mainMoviesContainer);
+    }
+
+    private void fetchMovies() {
+        AsyncTask.execute(() -> {
+            service.fetchMovies("new").enqueue(new Callback<List<PhotoBody>>() {
+                @Override
+                public void onResponse(Call<List<PhotoBody>> call, Response<List<PhotoBody>> response) {
+                    if (response.isSuccessful()) {
+                        mMovies = response.body();
+                        moviesListAdapter = new MoviesAdapter(getContext(), mMovies);
+
+                        LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+                        mMoviesContainer.setLayoutManager(manager);
+                        mMoviesContainer.setAdapter(moviesListAdapter);
+                    } else if (response.code() == 400) {
+                        String serverErrorMessage = ErrorUtils.parseError(response).message();
+                        Toast.makeText(getContext(), serverErrorMessage, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), "Не удалось получить информацию о фильме 1", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<PhotoBody>> call, Throwable t) {
+                    Toast.makeText(getContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
     }
 }
