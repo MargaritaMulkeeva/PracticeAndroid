@@ -5,42 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".MainBlankFragment">
 
-    <!--<androidx.cardview.widget.CardView
-        android:id="@+id/viewPager"
-        android:overScrollMode="never"
-        android:clipToPadding="false"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:foregroundGravity="center">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/mainColor">
-
-            <TextView
-                android:id="@+id/txt_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/bold"
-                android:text="Altered Carbon"
-                android:textColor="@color/white"
-                android:textSize="24dp" />
-
-            <ImageView
-                android:id="@+id/img_cinema"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txt_name"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="24dp"
-                android:src="@drawable/img_cinema" />
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainMoviesContainer"
         android:layout_width="match_parent"

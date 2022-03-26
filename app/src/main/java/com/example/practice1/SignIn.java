@@ -3,6 +3,7 @@ package com.example.practice1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,9 @@ import retrofit2.Response;
 
 public class SignIn extends AppCompatActivity {
 
+    private SharedPreferences.Editor editor;
+    private SharedPreferences preferences;
+    private String token;
     Button btnSignIn;
     Button btnSignUp;
 
@@ -37,6 +41,13 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        editor = getSharedPreferences("token", MODE_PRIVATE).edit();
+        preferences = getSharedPreferences("token", MODE_PRIVATE);
+        token = preferences.getString("token", "");
+        if(token != ""){
+            Intent intent = new Intent(SignIn.this, MainActivity.class);
+            startActivity(intent);
+        }
 
         initializeViews();
 
@@ -69,9 +80,10 @@ public class SignIn extends AppCompatActivity {
                 public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
 
                     if (response.isSuccessful()) {
+                        editor.putString("token", response.body().getToken()).apply();
+                        Toast.makeText(getApplicationContext(), "Авторизация прошла успешно! Держи свой токен: " + response.body().getToken(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignIn.this, MainActivity.class);
                         startActivity(intent);
-                        Toast.makeText(getApplicationContext(), "Авторизация прошла успешно! Держи свой токен: " + response.body().getToken(), Toast.LENGTH_SHORT).show();
                     } else if (response.code() == 400){
                         String serverErrorMessage = ErrorUtils.parseError(response).message();
                         Toast.makeText(getApplicationContext(), serverErrorMessage, Toast.LENGTH_SHORT).show();

@@ -44,10 +44,12 @@
                     android:gravity="end"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <ImageButton
+                        android:id="@+id/btn_add"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/uil_plus" />
+                        android:src="@drawable/uil_plus"
+                        android:background="@color/mainColor"/>
                 </LinearLayout>
 
             </LinearLayout>

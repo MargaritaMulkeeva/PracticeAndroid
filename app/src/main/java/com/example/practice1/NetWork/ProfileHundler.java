@@ -1,35 +1,25 @@
 package com.example.practice1.NetWork;
 
-import com.example.practice1.Data.DataManager;
-import com.example.practice1.NetWork.Service.ApiService;
+import com.example.practice1.NetWork.Service.ApiProfileService;
 
-import java.io.IOException;
-
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ApiHundler {
-
-    private static ApiHundler mInstance;
-
-    private static final String BASE_URL = "http://cinema.areas.su/auth/";
-
+public class ProfileHundler {
+    private static ProfileHundler mInstance;
+    private static final String BASEURL = "http://cinema.areas.su/";
     private Retrofit retrofit;
 
-    public ApiHundler() {
+    public ProfileHundler() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient.Builder client = new OkHttpClient.Builder()
                 .addInterceptor(interceptor);
-
         retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(BASEURL)
                 .client(client.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -37,14 +27,15 @@ public class ApiHundler {
         ErrorUtils.retrofit = retrofit;
     }
 
-    public static ApiHundler getInstance() {
+    public static ProfileHundler getInstance() {
         if (mInstance == null) {
-            mInstance = new ApiHundler();
+            mInstance = new ProfileHundler();
         }
+
         return mInstance;
     }
 
-    public ApiService getService() {
-        return retrofit.create(ApiService.class);
+    public ApiProfileService getProfileService() {
+        return retrofit.create(ApiProfileService.class);
     }
 }
