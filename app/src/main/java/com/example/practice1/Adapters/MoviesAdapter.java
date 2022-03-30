@@ -1,24 +1,29 @@
 package com.example.practice1.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.practice1.NetWork.Models.PhotoBody;
+import com.example.practice1.Chat.ChatBlankFragment;
+import com.example.practice1.NetWork.Models.MovieResponse;
 import com.example.practice1.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolder> {
 
-    public class MovieHolder extends RecyclerView.ViewHolder{
+    public class MovieHolder extends RecyclerView.ViewHolder {
+
         private TextView mTitle;
         private ImageView mPreview;
 
@@ -39,10 +44,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
         }
     }
 
-    private List<PhotoBody> mMovies;
+    private List<MovieResponse> mMovies;
     private Context mContext;
 
-    public MoviesAdapter(Context context, List<PhotoBody> movies) {
+    public MoviesAdapter(Context context, List<MovieResponse> movies) {
         mContext = context;
         mMovies = movies;
     }
@@ -57,7 +62,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
 
     @Override
     public void onBindViewHolder(@NonNull MovieHolder holder, int position) {
-        final PhotoBody movie = mMovies.get(position);
+        final MovieResponse movie = mMovies.get(position);
 
         holder.setMovieTitle(movie.getName());
         holder.setMoviePreview("http://cinema.areas.su/up/images/" + movie.getPoster());

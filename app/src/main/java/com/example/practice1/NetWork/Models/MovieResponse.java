@@ -1,9 +1,13 @@
 package com.example.practice1.NetWork.Models;
 
+import android.nfc.Tag;
+
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PhotoBody {
+import java.util.List;
 
+public class MovieResponse {
     @SerializedName("movieId")
     private String movieId;
     @SerializedName("name")
@@ -45,4 +49,3 @@ public class PhotoBody {
         this.poster = poster;
     }
 }
-

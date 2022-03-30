@@ -1,42 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linear"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/mainColor"
+    android:padding="16dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/movie_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
         android:textStyle="bold"
-        android:textSize="24dp"
-        android:lineHeight="29dp"
+        android:textSize="24sp"
         android:textAlignment="center"
         android:textColor="#fff"
-        android:text="Movie Title"
+        android:text=""
         tools:ignore="MissingConstraints" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/movie_preview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:cardCornerRadius="16dp"
         android:layout_marginTop="72dp"
-        android:layout_marginLeft="21dp"
-        android:layout_marginRight="21dp"
-        tools:ignore="MissingConstraints"
         android:background="@color/mainColor">
-
-        <ImageView
-            android:background="@color/mainColor"
-            android:id="@+id/movie_preview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/img_cinema" />
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>

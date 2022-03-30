@@ -2,7 +2,7 @@ package com.example.practice1.NetWork.Service;
 
 import com.example.practice1.NetWork.Models.LoginBody;
 import com.example.practice1.NetWork.Models.LoginResponse;
-import com.example.practice1.NetWork.Models.PhotoBody;
+import com.example.practice1.NetWork.Models.MovieResponse;
 import com.example.practice1.NetWork.Models.RegisterBody;
 import com.example.practice1.NetWork.Models.RegistrationResponse;
 
@@ -21,6 +21,6 @@ public interface ApiService {
     @POST("register")
     Call<RegistrationResponse> goRegistration(@Body RegisterBody registerBody);
 
-    @GET("/movies")
-    Call<List<PhotoBody>> fetchMovies(@Query("filter") String filter);
+    @GET("movies")
+    Call<List<MovieResponse>> fetchMovies(@Query("filter") String filter);
 }

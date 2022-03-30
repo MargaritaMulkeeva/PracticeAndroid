@@ -1,4 +1,4 @@
-package com.example.practice1;
+package com.example.practice1.Chat;
 
 import android.os.Bundle;
 
@@ -7,18 +7,21 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-public class IconSelectionFragment extends Fragment {
+import com.example.practice1.R;
 
-    ImageView img_1;
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link ChatBlankFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class ChatBlankFragment extends Fragment {
 
-
-    public IconSelectionFragment() {
+    public ChatBlankFragment() {
         // Required empty public constructor
     }
-    public static IconSelectionFragment newInstance(String param1, String param2) {
-        IconSelectionFragment fragment = new IconSelectionFragment();
+    public static ChatBlankFragment newInstance(String param1, String param2) {
+        ChatBlankFragment fragment = new ChatBlankFragment();
         return fragment;
     }
 
@@ -30,7 +33,7 @@ public class IconSelectionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_icon_selection, container, false);
+        View view = inflater.inflate(R.layout.fragment_chat_blank, container, false);
         return view;
     }
 }
