@@ -1,19 +1,19 @@
-package com.example.practice1.NetWork;
+package com.example.wearcinema.Networks;
 
-import com.example.practice1.NetWork.Service.ApiService;
+import com.example.wearcinema.Networks.Service.ApiService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ApiHundler {
-    private static ApiHundler mInstance;
+public class ApiHandler {
+    private static ApiHandler mInstance;
     private static  final String BASE_URL="http://cinema.areas.su/auth/";
 
     private Retrofit retrofit;
 
-    public ApiHundler(){
+    public ApiHandler(){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -24,9 +24,9 @@ public class ApiHundler {
         ErrorUtils.retrofit = retrofit;
     }
 
-    public static ApiHundler getInstance() {
+    public static ApiHandler getInstance() {
         if(mInstance == null)
-            mInstance = new ApiHundler();
+            mInstance = new ApiHandler();
         return mInstance;
     }
 

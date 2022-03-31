@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@color/mainColor">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+
+        <ImageButton android:background="@color/mainColor" android:id="@+id/btn_discussion" android:scaleType="fitCenter" android:layout_marginRight="16dp" android:layout_width="64dp" android:layout_height="74dp" android:src="@drawable/discussion__"/>
+        <ImageButton android:background="@color/mainColor" android:id="@+id/btn_movies" android:scaleType="fitCenter" android:layout_width="64dp" android:layout_height="74dp" android:src="@drawable/movies"/>
+        <ImageButton android:background="@color/mainColor" android:id="@+id/btn_love"  android:scaleType="fitCenter"
+            android:layout_marginTop="8dp" android:layout_width="64dp" android:layout_height="74dp" android:src="@drawable/love"/>
+    </GridLayout>
+
+</LinearLayout>
