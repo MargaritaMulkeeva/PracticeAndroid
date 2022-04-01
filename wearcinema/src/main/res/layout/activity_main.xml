@@ -15,8 +15,10 @@
         android:orientation="horizontal"
         android:layout_margin="16dp">
 
-        <ImageButton android:background="@color/mainColor" android:id="@+id/btn_discussion" android:scaleType="fitCenter" android:layout_marginRight="16dp" android:layout_width="64dp" android:layout_height="74dp" android:src="@drawable/discussion__"/>
-        <ImageButton android:background="@color/mainColor" android:id="@+id/btn_movies" android:scaleType="fitCenter" android:layout_width="64dp" android:layout_height="74dp" android:src="@drawable/movies"/>
+        <ImageButton android:background="@color/mainColor" android:id="@+id/btn_discussion" android:scaleType="fitCenter" android:layout_marginRight="16dp" android:layout_width="64dp" android:layout_height="74dp" android:src="@drawable/discussion__"
+            android:onClick="discussion"/>
+        <ImageButton android:background="@color/mainColor" android:id="@+id/btn_movies" android:scaleType="fitCenter" android:layout_width="64dp" android:layout_height="74dp" android:src="@drawable/movies"
+            android:onClick="films"/>
         <ImageButton android:background="@color/mainColor" android:id="@+id/btn_love"  android:scaleType="fitCenter"
             android:layout_marginTop="8dp" android:layout_width="64dp" android:layout_height="74dp" android:src="@drawable/love"/>
     </GridLayout>

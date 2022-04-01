@@ -1,9 +1,12 @@
 package com.example.practice1.Data;
 
 public class DataManager {
+
+    //переменные
     private static String token;
     private static String mUserName;
 
+    //геттеры и сеттеры для перемееных
     public static String getToken() {
         return token;
     }

@@ -24,12 +24,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
 
     public class MovieHolder extends RecyclerView.ViewHolder {
 
+        //необходимые переменные
         private TextView mTitle;
         private ImageView mPreview;
 
         public MovieHolder(@NonNull View itemView) {
             super(itemView);
 
+            //объявление переменных
             mTitle = itemView.findViewById(R.id.movie_title);
             mPreview = itemView.findViewById(R.id.movie_preview);
         }
@@ -44,6 +46,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
         }
     }
 
+    //необходимые переменныед
     private List<MovieResponse> mMovies;
     private Context mContext;
 
